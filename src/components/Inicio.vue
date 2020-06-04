@@ -50,4 +50,22 @@ img {
     padding: 0;
   }
 }
+
+footer {
+  background-color: #011724;
+  /*   position: fixed;
+ */
+  bottom: 0;
+  width: 100%;
+}
+.fab {
+  font-size: 30px;
+  padding: 20px 5px 5px 5px;
+  color: white;
+}
+.copyright {
+  margin: 0;
+  color: white;
+  padding: 7px 0 35px 0;
+}
 </style>

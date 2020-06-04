@@ -73,27 +73,6 @@ nav {
   max-width: 100%;
 }
 
-.navbar__logo {
-  width: 18%;
-  padding-top: 10px;
-}
-.navbar__toggler {
-  color: white;
-}
-.navbar-collapse {
-  text-align: right;
-}
-.navbar-nav {
-  align-items: center;
-}
-
-.fas {
-  color: white;
-}
-#ad {
-  font-size: 22px;
-}
-
 /* .fade-enter,
 .fade-leave-to {
   opacity: 1;
@@ -102,6 +81,7 @@ nav {
 .fade-leave {
   opacity: 0;
 } */
+
 .fade-enter,
 .fade-leave-active {
   opacity: 0;

@@ -1,8 +1,27 @@
 <template>
   <div class="total">
+    <i id="gamepad" class="fas fa-gamepad"></i>
     <h2>Venta de juegos</h2>
-    <p>{{ juegosDisp }}</p>
-    <p>{{ sumaTotal }}</p>
+    <hr />
+    <div>
+      <img src="/sekiro.jpg" alt="juego" class="avatar" />
+      <img src="/fifa21.jpg" alt="juego" class="avatar" />
+      <img src="/gearsofwars.jpg" alt="juego" class="avatar" />
+      <img src="/mario.jpeg" alt="juego" class="avatar" />
+      <img src="/bloodborne.png" alt="juego" class="avatar" />
+      <img src="/forza.jpg" alt="juego" class="avatar" />
+    </div>
+
+    <div class="bajada">
+      <h4>
+        Tenemos {{ juegosDisp }} tipos de juegos disponibles en nuestra Tienda
+        Online.
+      </h4>
+      <h5>
+        Entre estos {{ juegosDisp }} juegos, contamos con un stock de
+        {{ sumaTotal }}.
+      </h5>
+    </div>
   </div>
 </template>
 
@@ -22,41 +41,36 @@ export default {
 </script>
 
 <style scoped>
-.buscar {
+.total {
   background-color: #fff7d0;
 }
-form {
-  display: inline-flex;
-  margin: auto;
-  margin-bottom: 50px;
-  margin-top: 50px;
-}
-input {
-  font-size: 30px;
-  font-weight: lighter;
-  padding: 15px 15px;
-  border: 0;
-  border-radius: 10px;
-}
-
-button {
-  background-color: #e73c09;
-  margin-left: 10px;
-  padding: 5px 10px 5px 12px;
-  color: white;
-  border: 0;
-  border-radius: 10px;
-}
-
-button:hover {
-  color: gainsboro;
-}
-
-i {
+#gamepad {
+  color: #011724;
   font-size: 40px;
-  padding: 10px 5px;
+  padding: 30px 5px 0 5px;
 }
-li {
-  list-style: none;
+h2 {
+  color: #011724;
+  font-weight: bold;
+  padding: 5px 0 10px 0;
+}
+hr {
+  width: 50%;
+}
+
+.avatar {
+  vertical-align: middle;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+h4,
+h5 {
+  color: #011724;
+}
+.bajada {
+  padding: 10px 20px 50px 20px;
 }
 </style>

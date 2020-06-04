@@ -1,5 +1,6 @@
 <template>
   <div class="total">
+    <i id="gamepad" class="fas fa-gamepad"></i>
     <h2>Juegos Disponibles</h2>
     <ul>
       <li
@@ -37,40 +38,30 @@ export default {
 </script>
 
 <style scoped>
-.buscar {
+.total {
   background-color: #fff7d0;
 }
-form {
-  display: inline-flex;
-  margin: auto;
-  margin-bottom: 50px;
-  margin-top: 50px;
+#gamepad {
+  color: #011724;
+  font-size: 40px;
+  padding: 30px 5px 0 5px;
 }
-input {
-  font-size: 30px;
-  font-weight: lighter;
-  padding: 15px 15px;
-  border: 0;
-  border-radius: 10px;
+h2 {
+  color: #011724;
+  font-weight: bold;
+  padding: 5px 0 5px 0;
 }
 
-button {
-  background-color: #e73c09;
-  margin-left: 10px;
-  padding: 5px 10px 5px 12px;
-  color: white;
-  border: 0;
-  border-radius: 10px;
-}
-
-button:hover {
-  color: gainsboro;
-}
 ul {
-  margin: 20px;
+  margin: 10px 30px 30px 30px;
   padding: 0;
 }
-
+label {
+  color: #d4d2d2;
+  font-weight: bold;
+  padding: 5px 0;
+  margin: 0;
+}
 i {
   font-size: 40px;
   padding: 10px 5px;

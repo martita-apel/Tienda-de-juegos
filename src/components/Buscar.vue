@@ -10,10 +10,9 @@
     <!--     <div v-for="(producto, index) in buscarImagen" :key="index">
  -->
     <div class="desplegar">
-      <!--       <img :src="'../assets/' + buscarImagen" alt="juego" />
- -->
-      <p>{{ buscarId.name }}</p>
+      <img :src="`/` + buscarImagen" alt="juego" />
     </div>
+    <p>{{ buscarId.name }}</p>
   </div>
 </template>
 
@@ -29,17 +28,12 @@ export default {
   },
   methods: {
     ...mapState(["products"]),
-    /*  imgUrl() {
-      for (const producto in this.products) {
-        return producto.img;
-      }
-    }, */
   },
   computed: {
-    ...mapGetters(["byId", "juegosDisp", "sumaTotal"]),
+    ...mapGetters(["byId", "juegosDisp", "sumaTotal", "buscarImagen"]),
     buscarId() {
       let result = this.byId(this.id);
-      return result ? result : { name: "No existe este producto" };
+      return result ? result : { name: "" };
     },
   },
 };

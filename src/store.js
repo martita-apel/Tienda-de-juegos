@@ -22,7 +22,7 @@ const store = new Vuex.Store({
         price: "25000",
         color: "blue",
         featured: "false",
-        img: "gearsofwars.jpg",
+        img: "fifa21.jpg",
       },
       {
         code: "0003",
@@ -40,7 +40,7 @@ const store = new Vuex.Store({
         price: "35000",
         color: "yellow",
         featured: "false",
-        img: "gearsofwars.jpg",
+        img: "mario.jpeg",
       },
       {
         code: "0005",
@@ -49,7 +49,7 @@ const store = new Vuex.Store({
         price: "10000",
         color: "blue",
         featured: "false",
-        img: "gearsofwars.jpg",
+        img: "bloodborne.png",
       },
       {
         code: "0006",
@@ -58,7 +58,7 @@ const store = new Vuex.Store({
         price: "20000",
         color: "red",
         featured: "true",
-        img: "gearsofwars.jpg",
+        img: "forza.jpg",
       },
     ],
   },
@@ -73,9 +73,16 @@ const store = new Vuex.Store({
     },
     buscarImagen: (state) => {
       return state.products.forEach((producto) => {
+        console.log(producto.img);
         return producto.img;
       });
     },
+    /*  imgUrl() {
+      for (const p in this.products) {
+        console.log(this.products[p].name);
+        return `../assets/${this.products[p].img}`;
+      }
+    }, */
     juegosDisp(state) {
       return state.products.length;
     },
@@ -84,14 +91,6 @@ const store = new Vuex.Store({
         return acc + producto.stock;
       }, 0);
     },
-    /* sumaTotal(state) {
-            let stockDisp = state.products.stock;
-       
-      return state.products.reduce((acc, producto) => {
-          acc + producto.stock;
-          console.log(producto.stock);
-        }),
-    } */
   },
   mutations: {},
   actions: {},
