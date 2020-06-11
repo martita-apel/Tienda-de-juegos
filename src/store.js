@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
+    totalVentas: 0,
     products: [
       {
         code: "0001",
@@ -86,14 +87,64 @@ const store = new Vuex.Store({
     juegosDisp(state) {
       return state.products.length;
     },
+    juegosVendidos(state) {
+      return state.products.filter((producto) => {
+        return producto.stock !== 100;
+      });
+    },
     sumaTotal(state) {
       return state.products.reduce((acc, producto) => {
         return acc + producto.stock;
       }, 0);
     },
   },
-  mutations: {},
-  actions: {},
+  mutations: {
+    SELL_PRODUCT: (state, producto) => {
+      let prod = state.products.find((prod) => prod.id == producto.id);
+      prod.stock--;
+    },
+    UPDATE_TOTAL(state, producto) {
+      state.totalVentas += parseInt(producto.price);
+    },
+  },
+  actions: {
+    sellStock(context, producto) {
+      context.commit("SELL_PRODUCT", producto);
+    },
+
+    async sellProduct({ dispatch }, producto) {
+      await dispatch("processSale", producto)
+        .then(() => {
+          alert("Venta procesada exitosamente.");
+        })
+        .catch(() => {
+          alert("Venta rechazada. No hay stock o el producto no existe.");
+        });
+      dispatch("updateTotal", producto);
+    },
+    processSale({ commit, state }, producto) {
+      return new Promise((resolve, reject) => {
+        let randomTime = Math.floor(Math.random() * 2000 + 1);
+        setTimeout(() => {
+          let success = false;
+          let prod = state.products.find((prod) => prod.id == producto.id);
+          if (prod && prod.stock > 0) {
+            commit("SELL_PRODUCT", prod);
+            success = true;
+          }
+          success ? resolve() : reject();
+        }, randomTime);
+      });
+    },
+    updateTotal({ commit }, producto) {
+      return new Promise(() => {
+        let randomTime = Math.floor(Math.random() * 1000 + 1);
+        setTimeout(() => {
+          commit("UPDATE_TOTAL", producto);
+        }, randomTime);
+      });
+    },
+  },
 });
 
 export default store;

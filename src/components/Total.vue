@@ -3,18 +3,11 @@
     <i id="gamepad" class="fas fa-gamepad"></i>
     <h2>Juegos Disponibles</h2>
     <ul>
-      <li
-        v-for="(producto, index) in enStock"
-        :key="index"
-        :style="{ background: producto.color }"
-      >
-        <label
-          >{{ producto.code }} | {{ producto.name }} | {{ producto.stock }} |
-          {{ producto.price }}</label
-        >
-        <!--  <button class="boton_stock" @click="agregarStock(producto)">+</button>
-        <button class="boton_resta" @click="restarStock(producto)">-</button>
-        <button class="boton_venta" @click="sell(producto)">Vender</button> -->
+      <li v-for="(producto, index) in enStock" :key="index" :style="{ background: producto.color }">
+        <label>
+          {{ producto.code }} | {{ producto.name }} | {{ producto.stock }} |
+          {{ producto.price }}
+        </label>
       </li>
     </ul>
   </div>
@@ -29,11 +22,11 @@ export default {
     return {};
   },
   methods: {
-    ...mapState(["products"]),
+    ...mapState(["products"])
   },
   computed: {
-    ...mapGetters(["enStock", "juegosDisp", "sumaTotal"]),
-  },
+    ...mapGetters(["enStock", "juegosDisp", "sumaTotal"])
+  }
 };
 </script>
 

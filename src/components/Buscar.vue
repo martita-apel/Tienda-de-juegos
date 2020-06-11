@@ -8,11 +8,12 @@
     </form>
 
     <!--     <div v-for="(producto, index) in buscarImagen" :key="index">
- -->
+    -->
     <div class="desplegar">
-      <img :src="`/` + buscarImagen" alt="juego" />
+      <!--       <img :src="`/` + buscarImagen" alt="juego" />
+      -->
     </div>
-    <p>{{ buscarId.name }}</p>
+    <p class="juego_buscado">{{ buscarId.name }} - {{buscarId.price}}</p>
   </div>
 </template>
 
@@ -23,19 +24,19 @@ export default {
   name: "Buscar",
   data() {
     return {
-      id: "",
+      id: ""
     };
   },
   methods: {
-    ...mapState(["products"]),
+    ...mapState(["products"])
   },
   computed: {
-    ...mapGetters(["byId", "juegosDisp", "sumaTotal", "buscarImagen"]),
+    ...mapGetters(["byId"]),
     buscarId() {
       let result = this.byId(this.id);
       return result ? result : { name: "" };
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -55,6 +56,11 @@ input {
   padding: 15px 15px;
   border: 0;
   border-radius: 10px;
+}
+.juego_buscado {
+  font-size: 40px;
+  color: #e73c09;
+  padding-bottom: 30px;
 }
 
 button {
