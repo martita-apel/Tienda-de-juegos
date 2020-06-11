@@ -8,7 +8,7 @@ const store = new Vuex.Store({
     totalVentas: 0,
     products: [
       {
-        code: "0001",
+        id: "0001",
         name: "Sekiro",
         stock: 100,
         price: "30000",
@@ -17,7 +17,7 @@ const store = new Vuex.Store({
         img: "sekiro.jpg",
       },
       {
-        code: "0002",
+        id: "0002",
         name: "Fifa 21",
         stock: 100,
         price: "25000",
@@ -26,7 +26,7 @@ const store = new Vuex.Store({
         img: "fifa21.jpg",
       },
       {
-        code: "0003",
+        id: "0003",
         name: "Gears of Wars 4",
         stock: 100,
         price: "15000",
@@ -35,7 +35,7 @@ const store = new Vuex.Store({
         img: "gearsofwars.jpg",
       },
       {
-        code: "0004",
+        id: "0004",
         name: "Mario Tennis Aces",
         stock: 100,
         price: "35000",
@@ -44,7 +44,7 @@ const store = new Vuex.Store({
         img: "mario.jpeg",
       },
       {
-        code: "0005",
+        id: "0005",
         name: "Bloodborne",
         stock: 100,
         price: "10000",
@@ -53,7 +53,7 @@ const store = new Vuex.Store({
         img: "bloodborne.png",
       },
       {
-        code: "0006",
+        id: "0006",
         name: "Forza Horizon 4",
         stock: 100,
         price: "20000",
@@ -65,7 +65,9 @@ const store = new Vuex.Store({
   },
   getters: {
     byId: (state) => (id) => {
-      return state.products.find((producto) => producto.code == id);
+      return state.products.find((producto) => {
+        return producto.id == id;
+      });
     },
     enStock: (state) => {
       return state.products.filter((producto) => {

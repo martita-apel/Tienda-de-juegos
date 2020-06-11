@@ -1,19 +1,21 @@
 <template>
   <div class="buscar">
-    <form @submit.prevent="buscarId">
+    <div class="form" @submit.prevent="buscarId">
       <input v-model="id" type="text" placeholder="Buscar juego por ID" />
-      <button @click="buscarId" type="submit">
+      <button
+        type="submit"
+        @click="buscarId = !buscarId"
+        :class="{ active: !mostrar }"
+      >
         <i class="fas fa-search"></i>
       </button>
-    </form>
-
-    <!--     <div v-for="(producto, index) in buscarImagen" :key="index">
-    -->
-    <div class="desplegar">
-      <!--       <img :src="`/` + buscarImagen" alt="juego" />
-      -->
     </div>
-    <p class="juego_buscado">{{ buscarId.name }} - {{buscarId.price}}</p>
+
+    <!-- <div v-for="(producto, index) in buscarImagen" :key="index">-->
+    <div class="desplegar">
+      <!--  <img :src="`/` + buscarImagen" alt="juego" />-->
+    </div>
+    <p class="juego_buscado" v-if="!mostrar">{{ buscarId.name }}</p>
   </div>
 </template>
 
@@ -24,19 +26,20 @@ export default {
   name: "Buscar",
   data() {
     return {
-      id: ""
+      id: "",
+      mostrar: false,
     };
-  },
-  methods: {
-    ...mapState(["products"])
   },
   computed: {
     ...mapGetters(["byId"]),
     buscarId() {
       let result = this.byId(this.id);
-      return result ? result : { name: "" };
-    }
-  }
+      return result ? result : { name: "No se ha buscado ningún juego." };
+    },
+  },
+  methods: {
+    ...mapState(["products"]),
+  },
 };
 </script>
 
@@ -44,7 +47,7 @@ export default {
 .buscar {
   background-color: #fff7d0;
 }
-form {
+.form {
   display: inline-flex;
   margin: auto;
   margin-bottom: 50px;

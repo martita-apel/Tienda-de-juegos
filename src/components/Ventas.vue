@@ -30,7 +30,7 @@
 
       <div class="game">
         <p class="total_venta">JUEGOS VENDIDOS:</p>
-        <label v-for="(producto, index) in juegosVendidos" :key="index" v-text="producto.name"></label>
+        <label v-for="(producto, index) in juegosVendidos" :key="index">{{ producto.name }}/</label>
       </div>
     </div>
   </div>
